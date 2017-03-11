@@ -1,0 +1,33 @@
+body {
+	font-family: "Lato", sans-serif;
+	color: #2d3c49;
+}
+
+.featured {
+	color: #7d97ad;
+}
+
+.inverse {
+	background-color: #2d3c49;
+	color: #ffffff;
+}
+
+.small {
+	line-height: 12px;
+}
+
+.huge {
+	font-size: 60px;
+	font-weight: 100;
+}
+
+.hr {
+	width: 100%;
+	height: 4px;
+	background-color: #7d97ad;
+	margin-bottom: 20px;
+}
+
+.project-padding {
+	padding-bottom: 15px;
+}
