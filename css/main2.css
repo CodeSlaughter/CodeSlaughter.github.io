@@ -11,8 +11,8 @@ body {
 }
 
 .btn-article {
-	width: 500px;
-	height: 250px;
+	width: 70px;
+	height: 40px;
 	border-radius: 28px;
 	background: -webkit-linear-gradient(left top, #000000, #707070);
 	transition: all 1s;

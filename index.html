@@ -45,6 +45,31 @@
             <h3>What is Your Why</h3>
             <p>Finding Your Purpose</p>
           </button>-->
+            <h3>The 2000 Calorie Myth</h3>
+            <h4>A Clear Case of Sabotage</h4>
+            <p>So, perhaps I am being a tad bit dramatic with the whole sabotage reference. However, the 2000-calorie guideline that you see plastered on nearly every NFP (Nutrition Facts Panel) is just plain wrong for the majority of people. The caloric need of a person is terribly specific to a person’s gender, age, height, activity level, and BMI (body mass index). I think it’s a little irresponsible that this number is still included on NFPs given how wrong it is. I personally think there should be no reference to a caloric intake rather than listing one very specific target. I can go on for days, but at the risk of losing your attention lets get right to it. Here I will go over where the number came from, why it’s inaccurate, and what number a person should actually being using.</p>
+            <p>So, where did this mystery number come from? Simple. It came from studies or calculations done to fit that of a 185lb 6 ft. white guy. In a conference I recently learned that most dosing for medications are calculated based on the needs of a very specific model. What model is this? A white man of a specific height and weight. Therefore, the medicines you are taking can be too much or too little depending on how you compare to this initial model.  The same holds true for the 2000-calorie diet.</p>
+            <p>The best way to show this is with another example. A 120 lb. sedentary person burns about 1200 calories a day just being alive. The 1200-calorie threshold is what we call that person’s BMR or Base Metabolic Rate. Wikipedia defines BMR as “the rate at which your body uses energy when you are resting in order to keep vital functions going such as breathing”. If this sedentary person is eating 2000 calories a day they will be creating a caloric surplus of about 800 calories daily, or 5600 calories weekly. In other words, they will be gaining about 1.6 lbs. a week. </p>
+            <p>So how do you know how many calories you are burning in a day? Well the best way to start is to find our what your BMR is. There are a myriad of calculators and formulas on the web that can help assist you with that. This equation I am listing here is the Mifflin-St. Jeor equation and is considered to be the standard when it comes to BMR formulas as of now.</p>
+            <p>For men: BMR = 10 x weight (kg) + 6.25 x height (cm) – 5 x age (years) + 5</p>
+            <p>For women: BMR = 10 x weight (kg) + 6.25 x height (cm) – 5 x age (years) – 161</p>
+            <p>To find out what your BMR is click the button below.</p>
+            <button class="btn-article" data-toggle="modal" data-target="#bmr">
+            <p>BMR</p>
+            </button>
+            <p>Once you have your starting BMR there is one very important thing to keep in mind. This is not a one-time exercise! If you are dramatically gaining or losing weight you will have to recalculate this as your weight changes. For example, a person who started out at 180 lbs. might have a BMR of 1800 calories at that time. Once that person is down to 120 lbs. their BMR has dropped by 600 calories because the body is smaller and more efficient. If you do not adjust your eating habits to accommodate you wont be losing weight or maintaining it. Just gaining it back. I suggest you recalculate with every 5% change in body weight.</p>
+            <p>I hoped this article has made you suspicious of the “based on a 2000 calorie diet” verbiage on the back of nearly every package in this country. Pay it no mind because 99 out of 100 times it means nothing to you, the individual.</p>
+            <p class="text-left byline">By J. Slaughter 3.14.17</p>
+          </div>
+        </div>
+      </article>
+      <article>
+        <div class="row">
+          <div class="col-md-6 text-center col-md-offset-3 main-article well">
+          <!--<button class="btn-article" data-toggle="modal" data-target="#article01">
+            <h3>What is Your Why</h3>
+            <p>Finding Your Purpose</p>
+          </button>-->
             <h3>The Math Behind Weight Loss</h3>
             <h4>Weight Management 101</h4>
             <p>Ever heard of calorie counting? Do you understand why it’s important? Calorie counting is not sexy but unfortunately it’s an essential part of weight management. So why should we count calories? The answer is simple. To lose a pound of weight you must have a 3500-calorie deficit, and conversely, to gain a pound of weight you must have a 3500-calorie surplus. Tracking calories can help you understand if you can expect to gain or lose weight.</p>
@@ -109,6 +134,44 @@
           </div>
         </div>
       </article>
+      <div class="modal fade" id="bmr" tabindex="-1" role="dialog" aria-labelledby="bmr=modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-bmr" id="bmr=modal">BMR</h4>
+                </div>
+                <div class="modal-body text-center">
+                  <form id="bmr-calc">
+                    <div class="form-group">
+                      <label>Gender 
+                        <select class="form-control" id="gender">
+                          <option value="f">Female</option>
+                          <option value="m">Male</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div class="form-group">
+                      <label>Height</label>
+                      <input type="number" class="form-control" id="height" placeholder="Height in inches">
+                    </div>
+                    <div class="form-group">
+                      <label>Weight</label>
+                      <input type="number" class="form-control" id="weight" placeholder="Weight in lbs.">
+                    </div>
+                    <div class="form-group">
+                      <label>Age</label>
+                      <input type="number" class="form-control" id="age" placeholder="Age">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calculate BMR</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                <div id="bmrResult" class="text-center"></div>
+            </div>
+        </div>
+    </div>
 
     </main>
     <footer>
@@ -131,5 +194,33 @@
     <footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+      var bmr =function (gender, age, weight, height){
+          if (gender === "f"){
+          return femaleBMR(age, weight, height);
+          } else {
+            return maleBMR(age, weight, height);
+          }
+        };
+        var femaleBMR = function(age, weight, height){
+          var bmr = (10 * weight/2.2) + (6.25 * height * 2.54) - (5 * age) -161
+          return bmr;
+        };
+        var maleBMR = function(age, weight, height){
+          var bmr = (10 * weight/2.2) + (6.25 * height * 2.54) - (5 * age) + 5;
+          return bmr;
+        };
+
+      $("#bmr-calc").on("submit", function(event) {
+        event.preventDefault();
+        var gender = $("#gender").val(); 
+        var age = $("#age").val(); 
+        var weight = $("#weight").val(); 
+        var height = $("#height").val(); 
+        //var answer = $answer.val();
+        calcBmr = bmr(gender, age, weight, height);
+        $("#bmrResult").text("Your BMR is " + calcBmr);
+      });
+    </script>
   </body>
 </html>
