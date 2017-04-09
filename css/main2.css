@@ -14,14 +14,13 @@ body {
 	width: 70px;
 	height: 40px;
 	border-radius: 28px;
-	background: -webkit-linear-gradient(left top, #000000, #707070);
+	background: #000000;
 	transition: all 1s;
 	box-shadow: 1px 1px 1px;
-	color: #efefef;
+	color: #f7ce3e;
 }
 
 .btn-article:hover {
-	transform: scale(1.05);
 	background: -webkit-linear-gradient(left top, #707070, #000000);
 	box-shadow: 5px 5px 5px grey;
 }
@@ -53,6 +52,7 @@ ul.nav a:hover {
 .main-article p{
 	color: #2d3c49 !important;
 	font-size: 20px !important;
+	text-align: left;
 }
 
 .main-article h3{
